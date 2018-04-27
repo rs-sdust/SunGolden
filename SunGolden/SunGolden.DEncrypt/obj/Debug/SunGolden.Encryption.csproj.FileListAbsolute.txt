@@ -1,0 +1,5 @@
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGolden.DEncrypt\bin\Debug\SunGolden.Encryption.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGolden.DEncrypt\bin\Debug\SunGolden.Encryption.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGolden.DEncrypt\obj\Debug\SunGolden.Encryption.csprojResolveAssemblyReference.cache
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGolden.DEncrypt\obj\Debug\SunGolden.Encryption.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGolden.DEncrypt\obj\Debug\SunGolden.Encryption.pdb

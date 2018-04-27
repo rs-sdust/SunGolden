@@ -1,0 +1,13 @@
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\SunGolden.DbUtils\bin\Debug\SunGolden.DbUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\SunGolden.DbUtils\bin\Debug\SunGolden.DbUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\Output\Debug\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\Output\Debug\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\SunGolden.DbUtils\obj\Debug\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2010\Projects\WebApi\SunGolden.DbUtils\obj\Debug\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Debug\SunGolden.DbUtils.csprojResolveAssemblyReference.cache
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Debug\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Debug\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Debug\Npgsql.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Debug\SunGolden.Encryption.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Debug\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Debug\SunGolden.DBUtils.pdb

@@ -1,0 +1,17 @@
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.dll
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.pdb
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\Mono.Security.dll
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\Npgsql.dll
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\SunGolden.Encryption.dll
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\bin\Release\SunGolden.Encryption.pdb
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\obj\Release\SunGolden.DbUtils.csprojResolveAssemblyReference.cache
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.dll
+E:\全国农情速报系统\src\trunk\WebApi\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\Npgsql.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\SunGolden.Encryption.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Release\SunGolden.DbUtils.csprojResolveAssemblyReference.cache
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.XML

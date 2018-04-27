@@ -1,0 +1,8 @@
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\bin\Debug\SunGolden.Keygen.exe.config
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\bin\Debug\SunGolden.Keygen.exe
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\bin\Debug\SunGolden.Keygen.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\bin\Debug\SunGolden.Encryption.dll
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\bin\Debug\SunGolden.Encryption.pdb
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\obj\x86\Debug\SunGolden.Keygen.csprojResolveAssemblyReference.cache
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\obj\x86\Debug\SunGolden.Keygen.exe
+C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\WebApi\SunGoldenKeygen\obj\x86\Debug\SunGolden.Keygen.pdb
