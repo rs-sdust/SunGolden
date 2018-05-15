@@ -2,12 +2,22 @@
 // Assembly         : SunGolden.DBUtils
 // Author           : RickerYan
 // Created          : 04-23-2018
-//
-// Last Modified By : RickerYan
-// Last Modified On : 04-24-2018
+//------------------------------------------------------------------------
+// Modified By : RickerYan
+// Modified On : 04-24-2018
 // 升级NPGSQL版本到3.1.00,
 // 添加数据库事务
 // 添加返回指定model类型列表函数
+//------------------------------------------------------------------------
+// Modified By : RickerYan
+// Modified On : 04-24-2018
+// 添加返回DbDataReader类型函数ExecuteReaderQuery
+// 添加返回泛型数据函数ExecuteTQuery、ExecuteTListQuery
+//------------------------------------------------------------------------
+// Modified By : RickerYan
+// Modified On : 05-15-2018
+// 修复创建事务时的An operation is already in progress错误。
+// 错误原因为使用的datareader未及时释放。
 // ***********************************************************************
 // <copyright file="PostgreSQL.cs" company="SunGolden">
 //     Copyright © SunGolden 2018
@@ -65,7 +75,6 @@ namespace SunGolden.DBUtils
                 throw e;
             }
         }
-        #endregion
         /// <summary>
         /// 关闭数据库连接
         /// </summary>
@@ -86,6 +95,8 @@ namespace SunGolden.DBUtils
                 throw e;
             }
         }
+        #endregion
+
         #region Transaction
         /// <summary>
         /// 开始事务
@@ -152,7 +163,120 @@ namespace SunGolden.DBUtils
         }
         #endregion
 
+        #region ExecuteNoneQuery
+
+        /// <summary>
+        /// 执行查询返回受影响的行数,适用于INSERT INTO、UPDATE、DELETE等
+        /// </summary>
+        /// <param name="sqlStatement">SQL查询语句.</param>
+        /// <param name="transaction">事务对象，默认值为null.</param>
+        /// <param name="parameters">参数列表.</param>
+        public static int ExecuteNoneQuery(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        {
+            NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection);
+            if (transaction != null)
+            {
+                command.Transaction = transaction;
+            }
+            SetupParameters(command, parameters);
+            return command.ExecuteNonQuery();
+        }
+        #endregion
+
+        #region ExecuteReaderQuery
+        /// <summary>
+        /// 执行一个查询语句，返回一个关联的DataReader实例   
+        /// </summary>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <param name="transaction">The transaction.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>DbDataReader.</returns>
+        public static DbDataReader ExecuteReaderQuery(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        {
+            NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection);
+            if (transaction != null)
+            {
+                command.Transaction = transaction;
+            }
+            SetupParameters(command, parameters);
+            return command.ExecuteReader();
+        }
+        #endregion
+
+        #region ExecuteTableQuery
+        /// <summary>
+        /// 执行查询返回DataSet集合
+        /// </summary>
+        /// <param name="sqlStatement">SQL查询语句.</param>
+        /// <param name="transaction">事务对象，默认值为null.</param>
+        /// <param name="parameters">SQL参数列表.</param>
+        /// <returns>DataSet.</returns>
+        public static DataSet ExecuteDataSetQuery(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        {
+            using (NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection))
+            {
+                if (transaction != null)
+                {
+                    command.Transaction = transaction;
+                }
+                SetupParameters(command, parameters);
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(command))
+                {
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "DataSet");
+                    command.Parameters.Clear();
+                    return ds;
+                }
+            }
+        }
+        /// <summary>
+        /// 执行查询返回DataTable集合
+        /// </summary>
+        /// <param name="sqlStatement">SQL查询语句.</param>
+        /// <param name="transaction">事务对象，默认值为null.</param>
+        /// <param name="parameters">SQL参数列表.</param>
+        /// <returns>DataSet.</returns>
+        public static DataTable ExecuteTableQuery(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        {
+            using (NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection))
+            {
+                if (transaction != null)
+                {
+                    command.Transaction = transaction;
+                }
+                SetupParameters(command, parameters);
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(command))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    command.Parameters.Clear();
+                    return dt;
+                }
+            }
+        }
+        #endregion
+
         #region ExecuteObjectQuery
+        /// <summary>
+        /// 执行查询返回指定model类型实例
+        /// </summary>
+        /// <param name="sqlStatement">SQL查询语句.</param>
+        /// <param name="modelType">指定的model类型.</param>
+        /// <param name="transaction">事务对象，默认值为null.</param>
+        /// <param name="parameters">SQL参数列表.</param>
+        /// <returns>List&lt;T&gt;.</returns>
+        public static object ExecuteObjectQuery(string sqlStatement, Type modelType, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        {
+            var objList=ExecuteObjectListQuery(sqlStatement, modelType, transaction, parameters);
+            if (objList == null|| objList.Count==0)
+            {
+                return null;
+            }
+            else
+            {
+                return objList[0];
+            }
+        }
         /// <summary>
         /// 执行查询返回指定model类型集合
         /// </summary>
@@ -161,7 +285,7 @@ namespace SunGolden.DBUtils
         /// <param name="transaction">事务对象，默认值为null.</param>
         /// <param name="parameters">SQL参数列表.</param>
         /// <returns>List&lt;T&gt;.</returns>
-        public static List<object> ExecuteObjectQuery(string sqlStatement, Type modelType, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
+        public static List<object> ExecuteObjectListQuery(string sqlStatement, Type modelType, NpgsqlTransaction transaction = null, params DbParameter[] parameters)
         {
             using (NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection))
             {
@@ -181,50 +305,42 @@ namespace SunGolden.DBUtils
                 }
             }
         }
-        /// <summary>
-        /// 执行查询返回DataSet集合
-        /// </summary>
-        /// <param name="sqlStatement">SQL查询语句.</param>
-        /// <param name="transaction">事务对象，默认值为null.</param>
-        /// <param name="parameters">SQL参数列表.</param>
-        /// <returns>DataSet.</returns>
-        public static DataSet ExecuteObjectQuery(string sqlStatement,NpgsqlTransaction transaction = null, params DbParameter[] parameters)
-        {
-            using (NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection))
-            {
-                if (transaction != null)
-                {
-                    command.Transaction = transaction;
-                }
-                SetupParameters(command, parameters);
-                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(command))
-                {
-                    DataSet ds = new DataSet();
-                    da.Fill(ds, "DataSet");
-                    command.Parameters.Clear();
-                    return ds;
-                }
-            }
-        }
+
         #endregion
 
-        #region ExecuteNoneQuery
+        #region ExecuteTQuery
 
         /// <summary>
-        /// 执行查询返回受影响的行数,适用于INSERT INTO、UPDATE、DELETE等
+        /// 执行一个查询语句，返回一个指定类型的实例
         /// </summary>
-        /// <param name="sqlStatement">SQL查询语句.</param>
-        /// <param name="transaction">事务对象，默认值为null.</param>
-        /// <param name="parameters">参数列表.</param>
-        public static int ExecuteNoneQuery(string sqlStatement, NpgsqlTransaction transaction=null, params DbParameter[] parameters)
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <param name="transaction">The transaction.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>T.</returns>
+        public static T ExecuteTQuery<T>(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters) where T : new()
         {
-            NpgsqlCommand command = new NpgsqlCommand(sqlStatement, Connection);
-            if (transaction != null)
+            var tList = ExecuteTListQuery<T>(sqlStatement, transaction , parameters);
+            if (tList == null || tList.Count == 0)
+                return default(T);
+            else
+                return tList[0];
+        }
+
+        /// <summary>
+        /// 执行一个查询语句，返回指定类型的实例列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <param name="transaction">The transaction.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>List&lt;T&gt;.</returns>
+        public static List<T> ExecuteTListQuery<T>(string sqlStatement, NpgsqlTransaction transaction = null, params DbParameter[] parameters) where T : new()
+        {
+            using (DbDataReader reader = ExecuteReaderQuery(sqlStatement, transaction, parameters))
             {
-                command.Transaction = transaction;
+                return EntityReader.GetEntities<T>(reader);
             }
-            SetupParameters(command, parameters);
-            return command.ExecuteNonQuery();
         }
         #endregion
 

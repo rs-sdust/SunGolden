@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 
-namespace SunGolden.DbUtils
+namespace SunGolden.DBUtils
 {
     /// <summary>
     /// 通用数据库访问类，封装常见数据库操作

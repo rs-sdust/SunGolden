@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 
-namespace SunGolden.DbUtils
+namespace SunGolden.DBUtils
 {
     /// <summary>
     /// DbProviderFactory工厂类

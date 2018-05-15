@@ -17,7 +17,7 @@ using System.Data;
 using System.Data.Common;
 using System.Reflection;
 
-namespace SunGolden.DbUtils
+namespace SunGolden.DBUtils
 {
     /// <summary>
     /// 实体阅读器类，从DataTable中或者DbDataReader的实例中将数据转换成对应的实例对象
