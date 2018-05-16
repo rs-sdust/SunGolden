@@ -15,9 +15,3 @@ C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils
 C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.dll
 C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.pdb
 C:\Users\sdzh09\Documents\Visual Studio 2015\Projects\ShenNong\SunGolden.DbUtils\bin\Release\SunGolden.DBUtils.XML
-E:\Code\Sungolden\trunk\SunGolden\Release\SunGolden.DBUtils.XML
-E:\Code\Sungolden\trunk\SunGolden\Release\SunGolden.DBUtils.dll
-E:\Code\Sungolden\trunk\SunGolden\Release\SunGolden.DBUtils.pdb
-E:\Code\Sungolden\trunk\SunGolden\SunGolden.DbUtils\obj\Release\SunGolden.DbUtils.csprojResolveAssemblyReference.cache
-E:\Code\Sungolden\trunk\SunGolden\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.dll
-E:\Code\Sungolden\trunk\SunGolden\SunGolden.DbUtils\obj\Release\SunGolden.DBUtils.pdb

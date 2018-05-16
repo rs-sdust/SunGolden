@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunGolden.Keygen", "SunGold
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunGolden.DBUtils.Test", "SunGolden.DBUtils.Test\SunGolden.DBUtils.Test.csproj", "{D329A0A8-4A71-4014-9143-DE2C1054C7F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunGolden.ArcGIS.License", "SunGolden.ArcGIS.License\SunGolden.ArcGIS.License.csproj", "{E47E33E9-3030-4FBB-B5E8-822360DD902C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,14 @@ Global
 		{D329A0A8-4A71-4014-9143-DE2C1054C7F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D329A0A8-4A71-4014-9143-DE2C1054C7F8}.Release|x86.ActiveCfg = Release|Any CPU
 		{D329A0A8-4A71-4014-9143-DE2C1054C7F8}.Release|x86.Build.0 = Release|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Debug|x86.Build.0 = Debug|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E47E33E9-3030-4FBB-B5E8-822360DD902C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
